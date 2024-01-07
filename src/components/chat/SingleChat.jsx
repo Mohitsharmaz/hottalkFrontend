@@ -20,7 +20,8 @@ import { io } from "socket.io-client";
 
 // import sound from '../../audio/notification.wav'
 
-const ENDPOINT = "http://localhost:8000";
+// const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = "https://hottalkapi.onrender.com"
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgin, setFetchAgain }) => {

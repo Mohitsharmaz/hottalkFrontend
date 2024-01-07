@@ -1,4 +1,5 @@
-const domain = "http://localhost:8000"
+// const domain = "http://localhost:8000"
+const domain = "https://hottalkapi.onrender.com"
 
 export const appConfig ={
     chats: domain + "/api/chat",
