@@ -17,11 +17,12 @@ import { allChatMessages, sendMessage } from "../../config/apiCalls";
 import "../styles.css";
 import ScrollableChat from "./ScrollableChat";
 import { io } from "socket.io-client";
+import { appConfig } from "../../config";
 
 // import sound from '../../audio/notification.wav'
 
 // const ENDPOINT = "http://localhost:8000";
-const ENDPOINT = "https://hottalkapi.onrender.com"
+const ENDPOINT = appConfig.domain;
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgin, setFetchAgain }) => {
@@ -35,7 +36,7 @@ const SingleChat = ({ fetchAgin, setFetchAgain }) => {
 
   useEffect(() => {
     fetchAllMessages();
-    selectedChatCompare = selectedChat;
+    selectedChatCompare = {...selectedChat}
   }, [selectedChat]);
 
   useEffect(() => {
@@ -60,21 +61,20 @@ const SingleChat = ({ fetchAgin, setFetchAgain }) => {
   // const audio = new Audio("../../audio/notification.wav");
   // var audioPro = audio.play();
   // }
+  window.sttt = selectedChatCompare
+
   useEffect(() => {
     socket.on("message recieved", (newMsg) => {
-      console.log("new messsage recieved", newMsg);
-      if (newMsg.chat._id === selectedChat?._id) {
+      if (newMsg?.chat?._id === selectedChatCompare?._id) {
+        console.log("executing if statement");
         setMessages([...messages, newMsg]);
       } else {
         console.log("notification.....");
         setNotification([...notification, newMsg]);
       }
-
-      // socket.on('typing', selectedChat._id)
-
-      // socket.on('stop typing', selectedChat._id)
     });
   });
+
   const sendMessageFunc = async (e) => {
     console.log("message sent");
     if (e.key === "Enter" && newMessages) {
@@ -92,14 +92,6 @@ const SingleChat = ({ fetchAgin, setFetchAgain }) => {
   };
   const typingHandler = async (e) => {
     setNewMessages(e?.target?.value);
-    // console.log("typing....");
-    // socket.emit("typing", selectedChat._id);
-
-    // socket.on('typing', selectedChat._id)
-
-    // socket.on('stop typing', selectedChat._id)
-
-    // typing indiator logic here
   };
   return (
     <>

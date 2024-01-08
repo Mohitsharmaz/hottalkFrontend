@@ -39,7 +39,7 @@ const MyChats = ({fetchAgain}) => {
   useEffect(() => {
     console.log("selectec chat", selectedChat);
     fetchChats();
-  }, [fetchAgain]);
+  }, []);
 
   return (
     <Box
