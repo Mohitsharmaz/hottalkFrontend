@@ -114,6 +114,7 @@ const {setUser} = ChatState()
         width={"100%"}
         onClick={submitHanlder}
         style={{ marginTop: 15 }}
+        isLoading={loading}
       >
         Login
       </Button>
