@@ -88,6 +88,7 @@ const MyChats = ({fetchAgain}) => {
             {chats?.map((item) => {
               return (
                 <Box
+                key={item._id}
                   borderRadius={"lg"}
                   w={"100%"}
                   onClick={() => setSelectedChat(item)}

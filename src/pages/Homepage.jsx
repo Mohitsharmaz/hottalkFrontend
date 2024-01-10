@@ -17,8 +17,8 @@ import { useNavigate } from "react-router-dom";
 const Homepage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
+    const userInfo = localStorage?.getItem("userInfo")
     if (userInfo) {
       navigate("/chats");
     }

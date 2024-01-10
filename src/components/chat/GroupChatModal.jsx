@@ -153,6 +153,7 @@ const GroupChatModal = ({ children }) => {
                 ? search?.map((item) => {
                     return (
                       <UserListItem
+                      key={item._id}
                         user={item}
                         handleFunction={() => addUser(item)}
                       />

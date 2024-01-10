@@ -1,5 +1,5 @@
-// const domain = "http://localhost:8000"
-const domain = "https://hottalkapi.onrender.com"
+const domain = "http://localhost:8000"
+// const domain = "https://hottalkapi.onrender.com"
 
 export const appConfig ={
     chats: domain + "/api/chat",
@@ -7,5 +7,6 @@ export const appConfig ={
     login: domain + "/api/user/login",
     user: domain +"/api/user",
     group: domain +"/api/chat/group",
-    message:domain + '/api/message'
+    message:domain + '/api/message',
+    domain: domain
 }

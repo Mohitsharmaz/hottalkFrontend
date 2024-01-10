@@ -14,7 +14,7 @@ const ScrollableChat = ({ messages }) => {
           let isSame = isSameSender(messages, item, ind, user._id);
           return (
             <div
-              key={item._id}
+            key={item._id}
             style={{display:"flex" , justifyContent:isLoggedInSender?"flex-end":"normal", alignItems:"center"}}
             >
               {( isSameSender(messages, item, ind, user._id) ||
